@@ -19,5 +19,18 @@
 
         const winWord = helper.getWinWord(words);
         component.set("v.winWord", winWord);
+    },
+
+    blockClickHandler : function(component, event, helper) {
+        let clickCount = component.get("v.clickCount") + 1;
+        const value = event.getParam("value");
+        if(value === component.get("v.winWord")) {
+            component.set("v.result", "YOU WIN");
+            helper.disableBoard(component);
+        } else if(clickCount === 3) {
+            component.set("v.result", "YOU LOSE");
+            helper.disableBoard(component);
+        }
+        component.set("v.clickCount", clickCount);
     }
 })
