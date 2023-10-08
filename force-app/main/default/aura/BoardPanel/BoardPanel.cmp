@@ -1,10 +1,23 @@
-<aura:component>
-    <lightning:card footer="Hello World Footer" title="Hello World">
-        <aura:set attribute="actions">
-            <lightning:button label="New"/>
-        </aura:set>
-        <p class="slds-p-horizontal_small">
-            This is my first lightning component
-        </p>
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+
+    <aura:attribute name="modes" type="List" default="[
+    {'label': 'Easy', 'value': 'easy'},
+    {'label': 'Medium', 'value': 'medium'},
+    {'label': 'Hard', 'value': 'hard'},
+    ]"/>
+    
+    <lightning:card title="Word Shuffle">
+    <lightning:layout horizontalAlign="center">
+        <lightning:layoutItem padding="around-small">
+            <lightning:combobox name="gameMode" label="Game Mode" value="inProgress" variant="label-hidden" options="{!v.modes}" placeholder="Select Game Mode" />
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="around-small">
+            <lightning:button variant="brand" label="Start New Game" title="Start New Game" />
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="around-small">
+            <lightning:button label="Reshuffle" title="Reshuffle" />
+        </lightning:layoutItem>
+    </lightning:layout>
+
     </lightning:card>
-</aura:component>	
+</aura:component>
