@@ -10,6 +10,9 @@
     <aura:attribute name="boardDisabled" type="Boolean" default="false" />
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:method name="startGame" action="{!c.doInit}" description="Start New Game"></aura:method>
+
     <aura:handler name="onclick" event="c.BlockClickEvent" action="{!c.blockClickHandler}" />
 
     <div class="board">
