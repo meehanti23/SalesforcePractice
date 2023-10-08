@@ -5,19 +5,28 @@
     {'label': 'Medium', 'value': 'medium'},
     {'label': 'Hard', 'value': 'hard'},
     ]"/>
+
+    <aura:attribute name="selectedMode" type="String" />
     
     <lightning:card title="Word Shuffle">
     <lightning:layout horizontalAlign="center">
         <lightning:layoutItem padding="around-small">
-            <lightning:combobox name="gameMode" label="Game Mode" value="inProgress" variant="label-hidden" options="{!v.modes}" placeholder="Select Game Mode" />
+            <lightning:combobox name="gameMode" 
+                label="Game Mode" 
+                value="inProgress" 
+                variant="label-hidden" 
+                aura:id="gameMode"
+                options="{!v.modes}" 
+                placeholder="Select Game Mode" />
         </lightning:layoutItem>
         <lightning:layoutItem padding="around-small">
-            <lightning:button variant="brand" label="Start New Game" title="Start New Game" />
+            <lightning:button aura:id="startNewGameButton" variant="brand" label="Start New Game" title="Start New Game" onclick="{!c.startGame}" />
         </lightning:layoutItem>
         <lightning:layoutItem padding="around-small">
-            <lightning:button label="Reshuffle" title="Reshuffle" />
+            <lightning:button label="Reshuffle" title="Reshuffle" onclick="{!c.reshuffleBoard}" />
         </lightning:layoutItem>
     </lightning:layout>
 
+        <p>Selected mode is : {!v.selectedMode}</p>
     </lightning:card>
 </aura:component>
