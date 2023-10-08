@@ -1,0 +1,10 @@
+<aura:component>
+    <lightning:card footer="Hello World Footer" title="Hello World">
+        <aura:set attribute="actions">
+            <lightning:button label="New"/>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            This is my first lightning component
+        </p>
+    </lightning:card>
+</aura:component>	
